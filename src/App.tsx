@@ -1,13 +1,16 @@
 import React from 'react';
 
+// components
+import {Form} from "./components"
+
 // style
 import "./App.css"
 
 const App = () => {
   return (
-    <div>
-      <h1>Hello, world</h1>
-    </div>
+    <main className="home">
+      <Form />
+    </main>
   );
 }
 
