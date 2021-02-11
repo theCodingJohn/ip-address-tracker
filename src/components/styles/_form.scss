@@ -82,6 +82,7 @@
     width: calc(100% - 3rem);
     max-width: 65em;
     min-height: 125.5px;
+    z-index: 1;
 
     h2 {
       color: $secondary-color;

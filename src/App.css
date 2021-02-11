@@ -47,6 +47,12 @@ h1 {
   outline: 2px dashed #fff;
 }
 
+.home {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .container {
   padding: 0 1.4rem;
 }
@@ -151,6 +157,7 @@ h1 {
   width: calc(100% - 3rem);
   max-width: 65em;
   min-height: 125.5px;
+  z-index: 1;
 }
 
 @media (min-width: 576px) {
@@ -199,6 +206,17 @@ h1 {
   }
   .form__container .output-data h2 {
     margin-bottom: 0.4em;
+  }
+}
+
+.map {
+  width: 100%;
+  height: calc(100% - 250px);
+}
+
+@media (min-width: 576px) {
+  .map {
+    height: calc(100% - 280px);
   }
 }
 /*# sourceMappingURL=App.css.map */

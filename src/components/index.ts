@@ -1,3 +1,4 @@
 import Form from "./Form"
+import Map from "./Map"
 
-export {Form}
+export {Form, Map}

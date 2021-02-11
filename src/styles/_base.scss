@@ -2,6 +2,12 @@
   outline: 2px dashed $third-color;
 }
 
+.home {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .container {
   padding: 0 1.4rem;
 }
