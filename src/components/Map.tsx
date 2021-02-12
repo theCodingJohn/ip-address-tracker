@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ReactMapboxGl, {Marker} from 'react-mapbox-gl';
-import {MapStyle, Coordinates} from "./store/types"
+import {MapStyle, Coordinates} from "../store/types"
 
 const MapView = ReactMapboxGl({
   accessToken: `${process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}`,
