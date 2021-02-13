@@ -1,46 +1,14 @@
-// import React, { createContext, useState } from 'react'
+import React, { createContext, useState } from 'react'
+import {DataContextInteface, ChildrenProps, UserDataInteface} from "../types"
 
-// interface UserData {
-//     "ip": string,
-//     "location": {
-//         "country": string,
-//         "region": string,
-//         "city": string,
-//         "lat": number,
-//         "lng": number,
-//         "postalCode": string,
-//         "timezone": string,
-//         "geonameId": number
-//     },
-//     "domains": string[],
-//     "as": {
-//         "asn": number,
-//         "name": string,
-//         "route": string,
-//         "domain": string,
-//         "type": string
-//     },
-//     "isp": string,
-//     "proxy": {
-//         "proxy": boolean,
-//         "vpn": boolean,
-//         "tor": boolean
-//     }
-// }
+export const DataContext = createContext<DataContextInteface  | null>(null);
 
-// interface UserDataContext {
-//   "userData": UserData;
-//   setUserData: () => void;
-// }
+export const DataProvider = ({ children }: ChildrenProps) => {
+  const [userData, setUserData] = useState<UserDataInteface | null>(null);
 
-// export const DataContext = createContext<UserData | null | undefined>(null);
-
-// export const DataProvider: React.FC = ({ children }) => {
-//   const [userData, setUserData] = useState<UserDataContext | null | undefined>({});
-  
-//   return (
-//     <DataContext.Provider value={{userData, setUserData }}>
-//       {children}
-//     </DataContext.Provider>
-//   )
-// }
+  return (
+    <DataContext.Provider value={{userData, setUserData}}>
+      {children}
+    </DataContext.Provider>
+  )
+}

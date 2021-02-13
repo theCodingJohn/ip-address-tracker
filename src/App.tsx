@@ -1,6 +1,8 @@
 import React from 'react';
 import mapboxgl from 'mapbox-gl';
 
+import {DataProvider} from "./contexts/DataContext"
+
 // components
 import {Form, Map} from "./components"
 
@@ -12,10 +14,12 @@ const App = () => {
   // eslint-disable-next-line 
   (mapboxgl as any).workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
   return (
-    <main className="home">
-      <Form />
-      <Map />
-    </main>
+    <DataProvider>
+      <main className="home">
+        <Form />
+        <Map />
+      </main>
+    </DataProvider>
   );
 }
 
