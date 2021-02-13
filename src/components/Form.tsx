@@ -29,23 +29,25 @@ const Form = () => {
       <div className="output-data">
         <div className="output-data-wrapper ">
           <h2>ip address</h2>
-          <p>{userData?.ip}</p>
+          {!!userData ? <p>{userData?.ip}</p> : loader()}
         </div>
         <div className="output-data-wrapper ">
           <h2>location</h2>
-          <p>{ `${userData?.location.region}, ${userData?.location.city}` }<br />{ userData?.location.postalCode }</p>
+        {!!userData ? <p>{ `${userData?.location.region}, ${userData?.location.city}` }<br />{ userData?.location.postalCode }</p> : loader()}
         </div>
         <div className="output-data-wrapper ">
           <h2>timezone</h2>
-          <p>UTC {userData?.location.timezone}</p>
+        {!!userData ? <p>UTC {userData?.location.timezone}</p> : loader()}
         </div>
         <div className="output-data-wrapper output-data-wrapper-last">
           <h2>isp</h2>
-          <p>{ userData?.isp }</p>
+         {!!userData ? <p>{ userData?.isp }</p> : loader()}
         </div>
       </div>
     </section>
   )
 }
+
+const loader = () => <p>Loading...</p>;
 
 export default Form

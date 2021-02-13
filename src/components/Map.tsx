@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ReactMapboxGl, {Marker} from 'react-mapbox-gl';
 import { MapStyle, Coordinates } from "../types"
 import {useDataContext} from "../contexts/DataContext"
@@ -10,16 +10,29 @@ const MapView = ReactMapboxGl({
 const Map = () => {
   const { userData } = useDataContext();
 
-  const [mapStyle] = useState<MapStyle>({
+  const [mapStyle, setMapStyle] = useState<MapStyle>({
     style: "mapbox://styles/mapbox/streets-v8",
     className: "map",
     zoom: [14],
     center: [userData?.location.lng || 0, userData?.location.lat || 0],
   })
-// eslint-disable-next-line 
+
   const [marker, setMarker] = useState<Coordinates>({
     coordinates: [userData?.location.lng || 0, userData?.location.lat || 0]
   })
+
+  useEffect(() => {
+    setMapStyle({
+      style: "mapbox://styles/mapbox/streets-v8",
+      className: "map",
+      zoom: [14],
+      center: [userData?.location.lng || 0, userData?.location.lat || 0],
+    });
+  // eslint-disable-next-line 
+    setMarker({
+      coordinates: [userData?.location.lng || 0, userData?.location.lat || 0]
+    })
+  }, [userData])
 
   return (
     <MapView {...mapStyle}>
