@@ -9,7 +9,7 @@ export interface Coordinates {
   coordinates: [number, number];
 }
 
-export interface UserDataInteface {
+export interface UserDataInterface {
   "ip": string,
   "location": {
     "country": string,
@@ -37,9 +37,9 @@ export interface UserDataInteface {
   },
 }
 
-export interface DataContextInteface {
-  userData: UserDataInteface | null;
-  setUserData: (value: UserDataInteface) => void;
+export interface DataContextInterface {
+  userData: UserDataInterface | null | undefined;
+  setUserData: React.Dispatch<React.SetStateAction<UserDataInterface | null>>
 }
 
 export interface ChildrenProps {

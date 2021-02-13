@@ -1,14 +1,17 @@
-import React, { createContext, useState } from 'react'
-import {DataContextInteface, ChildrenProps, UserDataInteface} from "../types"
+import React, { createContext, useState, useContext } from 'react'
+import {DataContextInterface, ChildrenProps, UserDataInterface} from "../types"
 
-export const DataContext = createContext<DataContextInteface  | null>(null);
+export const DataContext = createContext({} as DataContextInterface);
 
 export const DataProvider = ({ children }: ChildrenProps) => {
-  const [userData, setUserData] = useState<UserDataInteface | null>(null);
+  const [userData, setUserData] = useState<UserDataInterface | null>(null);
+  const value: DataContextInterface = { userData, setUserData };
 
   return (
-    <DataContext.Provider value={{userData, setUserData}}>
+    <DataContext.Provider value={value}>
       {children}
     </DataContext.Provider>
   )
 }
+
+export const useDataContext = () => useContext(DataContext);

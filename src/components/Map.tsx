@@ -1,21 +1,24 @@
 import { useState } from 'react'
 import ReactMapboxGl, {Marker} from 'react-mapbox-gl';
-import {MapStyle, Coordinates} from "../types"
+import { MapStyle, Coordinates } from "../types"
+import {useDataContext} from "../contexts/DataContext"
 
 const MapView = ReactMapboxGl({
   accessToken: `${process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}`,
 });
 
 const Map = () => {
+  const { userData } = useDataContext();
+
   const [mapStyle] = useState<MapStyle>({
     style: "mapbox://styles/mapbox/streets-v8",
     className: "map",
     zoom: [14],
-    center: [121.041808, 14.403804],
+    center: [userData?.location.lng || 0, userData?.location.lat || 0],
   })
 // eslint-disable-next-line 
   const [marker, setMarker] = useState<Coordinates>({
-    coordinates: [121.041808, 14.403804]
+    coordinates: [userData?.location.lng || 0, userData?.location.lat || 0]
   })
 
   return (
