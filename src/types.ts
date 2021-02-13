@@ -37,9 +37,15 @@ export interface UserDataInterface {
   },
 }
 
+export interface IpInterface {
+  ipAddress: string
+}
+
 export interface DataContextInterface {
   userData: UserDataInterface | null | undefined;
-  setUserData: React.Dispatch<React.SetStateAction<UserDataInterface | null>>
+  setUserData: React.Dispatch<React.SetStateAction<UserDataInterface | null>>;
+  searchedIp: IpInterface | null | undefined;
+  setSearchedIp: React.Dispatch<React.SetStateAction<IpInterface | null>>;
 }
 
 export interface ChildrenProps {
